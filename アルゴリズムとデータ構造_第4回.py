@@ -434,7 +434,7 @@ time_end = time.time()
 time_elapsed = time_end - time_start
 print("time of fibonacci_recursion_lrucache()=",time_elapsed,"count_fibonacci_recursion_lrucache=",count_fibonacci_recursion_lrucache)
 
-"""トリボナッチ数列"""
+"""基礎問題5（トリボナッチ数列）"""
 
 from functools import lru_cache
 @lru_cache(maxsize=None)
@@ -451,3 +451,23 @@ def tribonacci_recursion(n):
 for n in range(0,41):
   tri_n = tribonacci_recursion(n)
   print(n, tri_n)
+
+"""理解度確認レポート（前半）の基礎問題5（テトラナッチ数列）"""
+
+from functools import lru_cache
+@lru_cache(maxsize=None)
+
+def tetranacci_recursion(n):
+  if n == 0:
+    return 0
+  if n == 1:
+    return 0
+  if n == 2:
+    return 0
+  if n == 3:
+    return 1
+  return tetranacci_recursion(n - 1) + tetranacci_recursion(n - 2) + tetranacci_recursion(n - 3) + tetranacci_recursion(n - 4)
+
+for n in range(0,41):
+  tet_n = tetranacci_recursion(n)
+  print(n, tet_n)
