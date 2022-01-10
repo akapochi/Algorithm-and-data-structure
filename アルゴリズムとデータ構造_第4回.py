@@ -44,7 +44,7 @@ factorial_detail(3)
 
 """## ユークリッドの互除法
 
-問：2つの自然数a, bの最大公約数を求めよ．
+問 : 2つの自然数a, bの最大公約数を求めよ．
 
 1.   aをbで割った余りをrとする．
 2.   rが0ならば，bを出力して終了する．
@@ -95,7 +95,7 @@ def gcd_euclidean_algorithm_recursion_detail(a, b):
 
 gcd_euclidean_algorithm_recursion_detail(15, 18)
 
-"""**練習：二重階乗の計算を再帰を使って実行してみる．**
+"""**練習 : 二重階乗の計算を再帰を使って実行してみる．**
 
 自然数$n$に対し，$n!!$は二重階乗(double factorial)あるいは半階乗(semifactorial)と呼ばれ，階乗の「1つ飛ばし」である．
 
@@ -120,7 +120,7 @@ def double_factorial_recursion(n):
 
 double_factorial_recursion(4)
 
-"""**練習：組合せの計算を再帰を使って実行してみる．**
+"""**練習 : 組合せの計算を再帰を使って実行してみる．**
 
 ${}_nC_k = \left( \begin{array}{1} n \\ k \end{array} \right)$の計算を行う($n \ge k > 0$)．
 
@@ -128,7 +128,7 @@ $\left( \begin{array}{1} n \\ k \end{array} \right) = \left( \begin{array}{1} n-
 """
 
 def combination_recursion(n, k):
-  if (k == 0 or n == k): 
+  if (k == 0 or n == k):
     return 1 # （三カ条の「終端条件」の記述）
   else:
     return combination_recursion(n - 1, k - 1) + combination_recursion(n - 1, k)
@@ -138,7 +138,7 @@ combination_recursion(5, 3)
 """基礎問題3"""
 
 def question3(n):
-  if n == 1:
+  if n <= 1:
     return 1
   else:
     return 3 * n + question3(n - 1)
@@ -152,7 +152,7 @@ def question4_f(n):
     return 1
   else:
     return 2 * n * question4_g(n-1)
-  
+
 def question4_g(n):
   if n <= 0:
     return 0
@@ -178,7 +178,73 @@ g(4) &= 4 + f(3) \\
 &= 4 + (2 \times 3 \times g(2)) \\
 &= 4 + 6 \times (2 + f(1)) \\
 &= 4 + 6 \times (2 + 1) \\
-&= 22 
+&= 22
+\end{align}
+
+理解度確認レポート（前半）の基礎問題4
+"""
+
+def func1(n):
+  if n <= 1:
+    return 3
+  else:
+    return 3 * n + 2 * func1(n - 1)
+
+func1(7)
+
+"""\begin{align}
+f(7) &= 3 \times 7+2 \times f(6)\\
+&= 21 + 2 \times (3 \times 6 + 2 \times f(5))\\
+&= 57 + 4 \times f(5)\\
+&= 57 + 4 \times (3 \times 5 + 2 \times f(4))\\
+&= 117 + 8 \times f(4)\\
+&= 117 + 8 \times (3 \times 4 + 2 \times f(3))\\
+&= 213 + 16 \times f(3)\\
+&= 213 + 16 \times (3 \times 3 + 2 \times f(2))\\
+&= 357 + 32 \times f(2)\\
+&= 357 + 32 \times (3 \times 2 + 2 \times f(1))\\
+&= 357 + 32 \times (3 \times 2 + 2 \times 3)\\
+&= 741
+\end{align}
+"""
+
+def func2_f(n):
+  if n <= 1:
+    return 2
+  else:
+    return 2 * n * func2_g(n - 1)
+def func2_g(n):
+  if n <= 0:
+    return 1
+  else:
+    return 3 * n + func2_f(n - 1)
+
+func2_f(5)
+
+"""\begin{align}
+f(5) &= 2 \times 5 \times g(4)\\
+&= 2 \times 5 \times (3 \times 4 + f(3))\\
+&= 120 + 10 \times f(3)\\
+&= 120 + 10 \times (2 \times 3 \times g(2))\\
+&= 120 + 60 \times g(2)\\
+&= 120 + 60 \times (3 \times 2 + f(1))\\
+&= 120 + 60 \times (3 \times 2 + 2)\\
+&= 600
+\end{align}
+"""
+
+func2_g(5)
+
+"""\begin{align}
+g(5) &= 3 \times 5 + f(4)\\
+&= 15 + 2 \times 4 \times g(3)\\
+&= 15 + 2 \times 4 \times (3 \times 3 + f(2))\\
+&= 87 + 8 \times f(2)\\
+&= 87 + 8 \times (2 \times 2 \times g(1))\\
+&= 87 + 32 \times g(1)\\
+&= 87 + 32 \times (3 \times 1 + f(0))\\
+&= 87 + 32 \times (3 \times 1 + 2)\\
+&= 247
 \end{align}
 
 ## ハノイの塔
@@ -351,7 +417,7 @@ print("time of fibonacci_recursion_w_memo()=",time_elapsed,"count_fibonacci_recu
 
 """更に興味のある人は`lru_cache()`について調べてみるとよい．"""
 
-from functools import lru_cache # 公式ドキュメント：https://docs.python.org/ja/3/library/functools.html　を参照．
+from functools import lru_cache # 公式ドキュメント : https://docs.python.org/ja/3/library/functools.html　を参照．
 
 count_fibonacci_recursion_lrucache = 0
 @lru_cache(maxsize=None)
@@ -385,4 +451,3 @@ def tribonacci_recursion(n):
 for n in range(0,41):
   tri_n = tribonacci_recursion(n)
   print(n, tri_n)
-
