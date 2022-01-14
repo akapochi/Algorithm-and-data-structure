@@ -83,7 +83,7 @@ print("Result (merge sort):", sorted_list)
 
 第05回では取り上げなかった方法として，再帰を使わない方法について以下で見てみよう．
 
-（補足）アンパック：リストの内容を別個に取り出す．
+（補足）アンパック : リストの内容を別個に取り出す．
 """
 
 random.shuffle(test1_list) #リスト要素をシャッフルする．randomのメソッドshuffleである．モジュールrandomに関する公式ドキュメント https://docs.python.org/ja/3/library/random.html　に掲載されている．（第03回にも出てきた）
@@ -132,7 +132,7 @@ def quick_sort(array):
 
   if array == []: # arrayが空リストである場合
     return array
-  
+
   pivot = array[0] # pivotとしてarrayの先頭要素を選択
   left_array = [] # 初期値として空リストを代入
   right_array = [] # 初期値として空リストを代入
@@ -145,7 +145,7 @@ def quick_sort(array):
       pivot_array.append(v) # v == pivot ならば，pivot_array の要素末尾に v を追加 ．append はリストのメソッド（さっきも出てきた）
     else:
       right_array.append(v) # v > pivot ならば，right_array の要素末尾に v を追加 ．append はリストのメソッド（さっきも出てきた）
-  
+
   #print(left_array, pivot_array, right_array)
   return quick_sort(left_array) + pivot_array + quick_sort(right_array) # リスト + リストでリストの結合が行われる．忘れた人は第02回を復習．
 
@@ -171,9 +171,9 @@ for _ in range(5):
   j = i
   while j == i:
     j = random.randint(1, len(almost_sorted_list1) - 1)
-  
+
   almost_sorted_list1[i], almost_sorted_list1[j] = almost_sorted_list1[j], almost_sorted_list1[i]
-  
+
 #print(almost_sorted_list1)
 
 time_start = time.time()
@@ -226,7 +226,7 @@ def quick_sort_modified1(array):
 
   if len(array) <= 1: # arrayが空あるいは要素が1つだけの場合の例外処理．
     return array
-  
+
   if len(array) == 2: # arrayの要素が2個の場合の例外処理．
     if array[1] < array[0]:
       array[0], array[1] = array[1] ,array[0]
@@ -258,7 +258,7 @@ def quick_sort_modified1(array):
       pivot_array.append(v)
     else:
       right_array.append(v)
-  
+
   return quick_sort_modified1(left_array) + pivot_array + quick_sort_modified1(right_array)
 
 test_list_a = []
@@ -310,7 +310,7 @@ def quick_sort_modified2(array):
       pivot_array.append(v)
     else:
       right_array.append(v)
-  
+
   return quick_sort_modified2(left_array) + pivot_array + quick_sort_modified2(right_array)
 
 test_list_a = []

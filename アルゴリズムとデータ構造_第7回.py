@@ -150,10 +150,10 @@ def binary_search(sorted_array, target):
       idx_l = idx_c + 1
     else:
       idx_r = idx_c - 1
-    
+
     if idx_l > idx_r:
       break
-  
+
   return False
 
 print(test_sorted_list1)
@@ -229,12 +229,12 @@ class BinarySearchTree: #BinarySearchTreeのクラスを用意．
       #print("parent:", parent)
       #print("direction:", direction)
       #print("-----")
-      
+
       if direction == 'left':
         parent.left = node
       else:
         parent.right = node
-      
+
     self.nodes.append(node)
 
   def find_parent(self, value): # 親を見つける．
@@ -300,6 +300,5 @@ for index in range(1, len(test_list1)):
   print("min: " + str(min))
   print("max: " + str(max))
   print("=========")
-  
-max - min
 
+max - min

@@ -8,7 +8,7 @@ Original file is located at
 
 # 様々なソートアルゴリズム
 
-**要求：各要素に数値が入っている長さｎの配列について，各要素の数値が小さい順に並べ替えた配列を作成せよ．**
+**要求 : 各要素に数値が入っている長さｎの配列について，各要素の数値が小さい順に並べ替えた配列を作成せよ．**
 
 上記の要求に対して，今回は以下の様々なソートアルゴリズムについて見ていく．
 
@@ -32,7 +32,7 @@ print(test1_list)
 
 第03回で学んだ選択ソートについて復習する．
 
-### **解法1：選択ソート(selection sort)**
+### **解法1 : 選択ソート(selection sort)**
 
 1.   `i`に0を代入する．
 2.   `i`が配列の最後の添字なら終了する．
@@ -44,7 +44,7 @@ print(test1_list)
 
 ## バブルソート
 
-### **解法2：バブルソート(bubble sort)**
+### **解法2 : バブルソート(bubble sort)**
 
 1.   `i`に0を代入する．
 2.   `j`に`len(array)-1`を代入する．
@@ -79,7 +79,7 @@ def bubble_sort_modified1(array):
       if array[j] < array[j-1]:
         array[j], array[j-1] = array[j-1], array[j]
         exchange_count += 1 # array[j]とarray[j-1]を交換したならば，exchange_countを1増やす．
-        
+
     if exchange_count == 0:
       break # for i in range(len(array))を抜け出す．
   return array
@@ -103,7 +103,7 @@ def bubble_sort_modified2(array):
         array[j], array[j-1] = array[j-1], array[j]
         #print("途中過程(for j)",array)
         final = j # array[j]とarray[j-1]を交換したならば，final に j を代入する．
-        
+
     k = final # for j in range(len(array)-1, k, -1)が終わった後の final の値を k に代入
     #print("k=",k)
     #print("途中過程(for k)",array)
@@ -117,7 +117,7 @@ print("bubble_sort_modified2(test1_list)=",sorted_test1_list)
 
 """バブルソートを「双方向」から行うシェーカーソート(shaker sort)（双方向バブルソート）について見ていこう．
 
-### **解法3：シェーカーソート(shaker sort)**
+### **解法3 : シェーカーソート(shaker sort)**
 
 1.   `left`に0を，`right`および`final`に`len(array)-1`を代入する．
 2.   `i`に`right`を代入する．
@@ -160,7 +160,7 @@ print("shaker_sort(test1_list)=",sorted_test1_list)
 
 """## 単純挿入ソート(straight insertion sort)
 
-### **解法4：単純挿入ソート(insertion sort)（シャトルソート：shuttle sort)**
+### **解法4 : 単純挿入ソート(insertion sort)（シャトルソート : shuttle sort)**
 
 1.   `i`に1を代入する．
 2.   `j`に`i`を代入し，変数`tmp`に`array[i]`の値を代入（記憶用の変数）
@@ -181,7 +181,7 @@ def insert_sort(array):
     while j > 0 and array[j-1] > tmp:
       array[j] = array[j-1]
       j -= 1
-    
+
     array[j] = tmp
     #print("途中過程 for i",array)
   return array
@@ -192,11 +192,11 @@ print("original list=",test1_list)
 sorted_test1_list = insert_sort(test1_list)
 print("insert_sort(test1_list)=",sorted_test1_list)
 
-"""**より進んだ話題**：二分探索（binary search)を用いた工夫もあるが，それは今後の講義（第07回または第08回）で取り扱う．
+"""**より進んだ話題** : 二分探索（binary search)を用いた工夫もあるが，それは今後の講義（第07回または第08回）で取り扱う．
 
 ## シェルソート
 
-### **解法5：シェルソート(Shell sort)（シャトルソート：shuttle sort)**
+### **解法5 : シェルソート(Shell sort)（シャトルソート : shuttle sort)**
 
 D. L. Shellによって考案された方法．
 
@@ -224,7 +224,7 @@ def shell_sort(array):
       array[j+dis] = tmp
       #print("途中過程 for i",array)
     dis //= 2
-  
+
   return array
 
 random.shuffle(test1_list) #上記でtest1_listがソートされてしまったのでリスト要素をシャッフルする．randomのメソッドshuffleである．モジュールrandomに関する公式ドキュメント https://docs.python.org/ja/3/library/random.html　に掲載されている．（第03回にも出てきた）
@@ -243,7 +243,7 @@ def shell_sort_modified(array):
 
   while (dis < len(array) // 9):
     dis = 3*dis + 1
-  
+
   while dis > 0:
     print("dis=",dis)
     for i in range(dis, len(array)):
@@ -256,7 +256,7 @@ def shell_sort_modified(array):
 
       array[j + dis] = tmp
     dis //= 3
-  
+
   return array
 
 test2_list = [random.randint(0, 10000) for _ in range(100)] # 先ほども出てきたが，random.randint(a, b)はa<=N<=bであるようなランダムな整数Nを返す．for _ in range(100)で100回繰り返す（結果として，test1_listに要素数100のリストができる）．
@@ -269,14 +269,14 @@ print("shell_sort_modified(test2_list)=",sorted_test2_list)
 
 """## ソート済み配列のマージ
 
-**要求：ソートされた2つの配列が用意されている．この2つの配列を併合（マージ）することを考える．その際，マージされた配列もソートされているものを作成せよ．**
+**要求 : ソートされた2つの配列が用意されている．この2つの配列を併合（マージ）することを考える．その際，マージされた配列もソートされているものを作成せよ．**
 
 """
 
 def merge_sorted_list(sorted_array_a, sorted_array_b=[]): #sorted_array_a, sorted_array_b は何らかの方法でソートされた配列.
   output_array = [None] * (len(sorted_array_a)+len(sorted_array_b)) # output_arrayは（将来）マージされた配列が入る．
   idx_a, idx_b, idx_o = 0, 0, 0 # idx_a, idx_b, idx_o はsorted_array_a, sorted_array_b, output_arrayの何番目の要素かを表す変数
-  
+
   while idx_a < len(sorted_array_a) and idx_b < len(sorted_array_b): # idx_aがlen(sorted_array_a)を超えない，かつ，idx_bがlen(sorted_array_b)を超えないあいだじゅう以下を繰り返す．
     if sorted_array_a[idx_a] <= sorted_array_b[idx_b]:
       output_array[idx_o] = sorted_array_a[idx_a]
@@ -293,7 +293,7 @@ def merge_sorted_list(sorted_array_a, sorted_array_b=[]): #sorted_array_a, sorte
     idx_a += 1
     idx_o += 1
     #print("output_array=",output_array)
-  
+
   while idx_b < len(sorted_array_b):
     output_array[idx_o] = sorted_array_b[idx_b]
     idx_b += 1
@@ -338,7 +338,7 @@ print("Merged list=",merged_list)
 
 """## マージソート
 
-**解法6：マージソート(merge sort)**
+**解法6 : マージソート(merge sort)**
 
 ソート済み配列のマージを用い，再帰的な呼び出しをすることでマージソートは実現できる．
 """

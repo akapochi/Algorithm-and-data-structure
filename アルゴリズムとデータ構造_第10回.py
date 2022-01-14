@@ -25,7 +25,7 @@ def count_nearest_routes1(num_horizontal, num_vertical):
 
 print("Num of shortest paths:", count_nearest_routes1(4, 5))
 
-import functools # 公式ドキュメント：https://docs.python.org/ja/3/library/functools.html　を参照。第04回最後でも少し触れた。
+import functools # 公式ドキュメント : https://docs.python.org/ja/3/library/functools.html　を参照。第04回最後でも少し触れた。
 @functools.lru_cache(maxsize = None)
 def count_nearest_routes2(num_horizontal, num_vertical):
   if (num_horizontal == 0) or (num_vertical == 0):

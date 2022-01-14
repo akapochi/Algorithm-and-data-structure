@@ -66,7 +66,7 @@ class BinarySearchTree: #BinarySearchTreeのクラスを用意．
   以降，（共有用）第07回アルゴリズムとデータ構造.ipynb にはない新たな記述
   """
   def search_node(self, value):
-    p = self.nodes[0] # 根を指す：self.nodes[0]
+    p = self.nodes[0] # 根を指す : self.nodes[0]
     while True:
       # print(p.value)
       if p is None:
