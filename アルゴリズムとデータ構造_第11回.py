@@ -249,3 +249,33 @@ print(knapsack_bruteforce_ex)
 print(knapsack_bruteforce_ex.items)
 print(knapsack_bruteforce_ex.weight)
 print(knapsack_bruteforce_ex.price)
+
+"""理解度確認レポート（後半）の基礎問題9"""
+
+item_list_ex2 = []
+item_list_ex2.append(Item(0, 26, 41)) # name, weight, priceの順
+item_list_ex2.append(Item(1, 32, 35)) # name, weight, priceの順
+item_list_ex2.append(Item(2, 30, 42)) # name, weight, priceの順
+item_list_ex2.append(Item(3, 16, 43)) # name, weight, priceの順
+item_list_ex2.append(Item(4, 17, 8)) # name, weight, priceの順
+item_list_ex2.append(Item(5, 16, 34)) # name, weight, priceの順
+item_list_ex2.append(Item(6, 9, 7)) # name, weight, priceの順
+item_list_ex2.append(Item(7, 29, 36)) # name, weight, priceの順
+
+knapsack_greedy_ex2 = greedy(item_list_ex2, 65)
+print(knapsack_greedy_ex2)
+print(knapsack_greedy_ex2.items)
+print(knapsack_greedy_ex2.weight)
+print(knapsack_greedy_ex2.price)
+
+knapsack_greedy2_ex2 = greedy2(item_list_ex2, 65)
+print(knapsack_greedy2_ex2)
+print(knapsack_greedy2_ex2.items)
+print(knapsack_greedy2_ex2.weight)
+print(knapsack_greedy2_ex2.price)
+
+knapsack_bruteforce_ex2 = brute_force(item_list_ex2, 65)
+print(knapsack_bruteforce_ex2)
+print(knapsack_bruteforce_ex2.items)
+print(knapsack_bruteforce_ex2.weight)
+print(knapsack_bruteforce_ex2.price)
