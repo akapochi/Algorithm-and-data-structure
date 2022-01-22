@@ -247,7 +247,64 @@ g(5) &= 3 \times 5 + f(4)\\
 &= 247
 \end{align}
 
-## ハノイの塔
+第13回レポートの基礎問題1
+"""
+
+def func3_f(n):
+  if n <= 1:
+    return 1
+  else:
+    return 4 * n * func3_g(n - 1)
+def func3_g(n):
+  if n == 0:
+    return 1
+  else:
+    return 2 * n + func3_f(n - 1)
+
+func3_f(5)
+
+"""\begin{align}
+f(5) &= 4 \times 5 \times g(4) \\
+&= 20 \times (2 \times 4 + f(3)) \\
+&= 160 + 20 \times f(3) \\
+&= 160 + 20 \times (4 \times 3 \times g(2)) \\
+&= 160 + 240 \times g(2) \\
+&= 160 + 240 \times (2 \times 2 + f(1)) \\
+&= 1120 + 240 \times f(1) \\
+&= 1120 + 240 \times 1 \\
+&= 1360
+\end{align}
+"""
+
+func3_g(5)
+
+"""\begin{align}
+g(5) &= 2 \times 5 + f(4) \\
+&= 10 + f(4) \\
+&= 10 + (4 \times 4 \times g(3)) \\
+&= 10 + 16 \times g(3) \\
+&= 10 + 16 \times (2 \times 3 + f(2)) \\
+&= 10 + 96 + 16 \times f(2) \\
+&= 106 + 16 \times (4 \times 2 \times g(1)) \\
+&= 106 + 128 \times g(1) \\
+&= 106 + 128 \times (2 \times 1 + f(0)) \\
+&= 106 + 256 + 128 \times f(0) \\
+&= 362 + 128 \times 1 \\
+&= 490
+\end{align}
+
+理解度確認レポート（後半）の基礎問題2
+"""
+
+def func4(n):
+  if n <= 1:
+    return 2
+  else:
+    return n * n + 2 * func4(n - 1)
+
+func4(10)
+
+"""## ハノイの塔
 
 小さいものが上に，大きいものが下になるように重ねられた円盤を3本のタワーの中で移動する問題を考えよう．ただしここで全ての円盤の大きさは異なっているものとし，一つのタワーに全ての円盤が重ねられているとしよう．
 
