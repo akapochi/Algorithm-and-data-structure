@@ -79,6 +79,11 @@ print("Distances in the shortest path:", bellman_ford(weighted_directed_graph3_f
 weighted_directed_graph4_for_bf = [[0, 1, 4], [0, 2, 6], [0, 3, 5], [1, 4, 6], [1, 6, -2], [2, 4, 3], [3, 4, 2], [3, 5, 3], [4, 6, -5], [4, 7, 2], [5, 7, -4], [5, 8, 2], [6, 7, 2], [6, 9, 4], [7, 9, 7], [8, 7, 1], [8, 9, 4]]
 print("Distances in the shortest path:", bellman_ford(weighted_directed_graph4_for_bf, 0, 10))
 
+"""理解度確認レポート（後半）の基礎問題8"""
+
+weighted_directed_graph5_for_bf = [[0, 1, 4], [0, 2, 2], [0, 3, 5], [1, 6, 4], [2, 4, 4], [3, 4, 3], [3, 5, 3], [4, 6, 5], [4, 7, 3], [5, 7, 4], [5, 8, 2], [6, 7, 2], [6, 9, 4], [7, 9, 7], [8, 7, 2], [8, 9, 4]]
+print("Distances in the shortest path:", bellman_ford(weighted_directed_graph5_for_bf, 0, 10))
+
 """## Dijkstra's algorithm"""
 
 def dijkstra(edges, start_vertex, num_vertices):
